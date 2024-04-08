@@ -3,13 +3,14 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 internal partial class Overlay : Form
 {
 	[STAThread]
 	static void Main(string[] args)
 	{
-		Arg.LaunchProperties(args, StartType.Debug);
+		Arg.LaunchProperties(args, StartType.Debug, default);
 	}
 
 	static Overlay Instance;
@@ -25,7 +26,7 @@ internal partial class Overlay : Form
 		this.Resize		+= new EventHandler(Overlay_Resize);
 	}
 
-	private static void Game_Exiting(object sender, EventArgs e)
+	internal static void OnExiting(object sender, EventArgs e)
 	{
 		Instance.Close();
 	}
@@ -44,7 +45,7 @@ internal partial class Overlay : Form
 
 	private void Overlay_Load(object sender, EventArgs e)
 	{
-		this.TopMost = true;
+		this.TopMost = false;
 		this.Location = new System.Drawing.Point(0, 0);
 		this.Size = new Size(800, 600);
 		this.TransparencyKey = this.BackColor = System.Drawing.Color.Red;
@@ -52,7 +53,6 @@ internal partial class Overlay : Form
 
 	private void Overlay_Paint(object sender, PaintEventArgs e)
 	{
-		e.Graphics.DrawString("Hello, Overlay!", new Font("Arial", 16), Brushes.Black, new PointF(10, 10));
 	}
 
 	private void InitializeComponent()

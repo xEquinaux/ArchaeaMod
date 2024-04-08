@@ -10,14 +10,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <UseWindowsForms>True</UseWindowsForms>
-    <StartupObject>ArchaeaMod.App</StartupObject>
-    <UseWPF>True</UseWPF>
+    <StartupObject>Overlay</StartupObject>
+    <UseWPF>False</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="App.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="App.config" />
+    <None Remove="App.xaml" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="redist\windowsdesktop-runtime-6.0.28-win-x64.exe" />
