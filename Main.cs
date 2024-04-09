@@ -14,15 +14,6 @@ namespace ArchaeaMod
 			throw new NotImplementedException();
 		}
 
-		public static bool		IsZoomed;
-		public static int			ScreenWidth => Screen.Width;
-		public static int			ScreenHeight => Screen.Height;
-		public static float		MapX, MapY;
-		public static float		ScrollSpeed = 0.3f;
-		public static Vector2	ScreenPos => new Vector2(Screen.X, Screen.Y);
-		public static Rectangle Screen;
-		public static Player		myPlayer;
-
 		private void ViewportHook(ViewportArgs e)
 		{
          var offset = new Vector3(Main.ScreenWidth / 2, Main.ScreenHeight / 2, 0);

@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Numerics;
 using static ArchaeaMod.Production;
 using Matrix = Microsoft.Xna.Framework.Matrix;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 
 namespace ArchaeaMod
@@ -139,6 +140,15 @@ namespace ArchaeaMod
 	}
 	public partial class Main : Production
 	{
+      public static bool		IsZoomed;
+		public static int			ScreenWidth => Screen.Width;
+		public static int			ScreenHeight => Screen.Height;
+		public static float		MapX, MapY;
+		public static float		ScrollSpeed = 0.3f;
+		public static Vector2	ScreenPos => new Vector2(Screen.X, Screen.Y);
+		public static Rectangle Screen;
+		public static Player		myPlayer;
+
       public override void RegisterHooks()
       {
          Production.UpdateEvent += Update;
