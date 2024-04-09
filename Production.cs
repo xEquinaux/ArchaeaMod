@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Numerics;
 using static ArchaeaMod.Production;
 using Matrix = Microsoft.Xna.Framework.Matrix;
+using Vector3 = Microsoft.Xna.Framework.Vector3;
 
 namespace ArchaeaMod
 {
@@ -63,7 +64,7 @@ namespace ArchaeaMod
 				Exit();
 
 			// TODO: Add your update logic here
-         ViewportEvent?.Invoke(new ViewportArgs() { viewport = _graphics.GraphicsDevice.Viewport });
+         ViewportEvent?.Invoke(new ViewportArgs() { viewport = _graphics.GraphicsDevice.Viewport, matrix = matrix });
          UpdateEvent?.Invoke(new UpdateArgs());
 
 			base.Update(gameTime);
@@ -123,6 +124,7 @@ namespace ArchaeaMod
       public class ViewportArgs : IArgs
       {
          public Viewport viewport;
+			public Matrix matrix;
       }
       public class InitializeArgs : IArgs
       {
@@ -135,7 +137,7 @@ namespace ArchaeaMod
       {
       }
 	}
-	public class Main : Production
+	public partial class Main : Production
 	{
       public override void RegisterHooks()
       {
@@ -150,55 +152,5 @@ namespace ArchaeaMod
          Production.ViewportEvent += ViewportHook;
          Production.ExitEvent += ExitApp;
       }
-
-		private bool ExitApp(ExitArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private void ViewportHook(ViewportArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private bool PreDraw(PreDrawArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private void MainMenu()
-		{
-			throw new NotImplementedException();
-		}
-
-		private void LoadResources()
-		{
-			throw new NotImplementedException();
-		}
-
-		private void Initialize(InitializeArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private void Draw(DrawingArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private void Input(InputArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private bool Resize(ResizeArgs e)
-		{
-			throw new NotImplementedException();
-		}
-
-		private void Update(UpdateArgs e)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
