@@ -19,7 +19,7 @@ namespace ArchaeaMod
 		/// <summary>
 		/// Start the form and surface controls.
 		/// </summary>
-		Normal = 0,
+		Production = 0,
 		/// <summary>
 		/// Start only the surface control.
 		/// </summary>
@@ -143,7 +143,7 @@ namespace ArchaeaMod
 						Production.Instance.Run();
 					}
 					break;
-				case StartType.Normal:
+				case StartType.Production:
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
 					Application.Run(new Overlay());
